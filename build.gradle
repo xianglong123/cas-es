@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.cas'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven {url 'https://repo1.maven.org/maven2/'}
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation ('org.springframework.boot:spring-boot-starter-data-elasticsearch') {
+        exclude(group: 'org.elasticsearch.client')
+        exclude(group: 'org.elasticsearch.plugin')
+    }
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 解决兼容问题
+    implementation 'org.elasticsearch.client:transport:7.11.2'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.11.2'
+    implementation 'org.elasticsearch.plugin:transport-netty4-client:7.11.2'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.11.2'
+    implementation 'org.elasticsearch:elasticsearch:7.11.2'
+    implementation 'com.alibaba:fastjson:1.2.61'
+}
+
+test {
+    useJUnitPlatform()
+}
