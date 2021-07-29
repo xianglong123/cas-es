@@ -159,7 +159,7 @@ class CasEsApplicationTests {
     // 查询
     @Test
     void testSearch() throws IOException {
-        SearchRequest searchRequest = new SearchRequest(INDEX);
+        SearchRequest searchRequest = new SearchRequest("eslog");
         // 构建搜索条件
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
 

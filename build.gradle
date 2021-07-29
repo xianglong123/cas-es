@@ -29,7 +29,13 @@ dependencies {
     implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.11.2'
     implementation 'org.elasticsearch:elasticsearch:7.11.2'
     implementation 'com.alibaba:fastjson:1.2.61'
+
+    // logstash
+    implementation 'net.logstash.logback:logstash-logback-encoder:6.6'
 }
+
+
+
 
 test {
     useJUnitPlatform()
